@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: Vaccination
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3307/vaccination
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+---
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: root
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: create-drop
+---
